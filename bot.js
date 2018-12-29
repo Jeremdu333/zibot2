@@ -118,6 +118,17 @@ bot.on('message', message => {
           
             
             break;
+			
+			case "stop":
+
+			if(!message.member.voiceChannel) 
+				
+				return chann.send(":x: Tu dois être dans un salon vocal");
+
+				message.member.voiceChannel.leave();
+			  
+			}
+			break;
         }
 
     }
