@@ -122,12 +122,12 @@ bot.on('message', message => {
 
 				    if(!message.member.voiceChannel){ 
 					
-					    chann.send(":x: Tu dois être dans un salon vocal");
+					    return chann.send(":x: Tu dois être dans un salon vocal");
 
 					    message.member.voiceChannel.leave();
 				  
-				    }
-				  break;
+            }
+          break;
         }
 
     }
