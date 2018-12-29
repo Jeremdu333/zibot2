@@ -74,61 +74,60 @@ bot.on('message', message => {
 
         switch(cmd){
 
-            //Quand on fait la commande 'ping'
-            case 'ping':
+          //Quand on fait la commande 'ping'
+          case 'ping':
 
-                chann.send("Pong !");
+            chann.send("Pong !");
 
-            break;
+          break;
 
-            //Quand on fait la commande 'play'
-            case 'play':
+          //Quand on fait la commande 'play'
+          case 'play':
 
-				if (!args[0]) {
+            if (!args[0]) {
 
-					chann.send(":x: Tu dois m’indiquer un lien YouTube !"); 
+              chann.send(":x: Tu dois m’indiquer un lien YouTube !"); 
+              
+              return;
+              
+            }
 				
-					return;
-				
-				  }
-				
-					if(!message.member.voiceChannel) {
-				
-					chann.send(":x: Tu dois être dans un salon vocal !"); 
-				
-					return;
-				
-				  }
+            if(!message.member.voiceChannel) {
+              
+              chann.send(":x: Tu dois être dans un salon vocal !"); 
+              
+              return;
+              
+            }
 
-				if(!servers[message.guild.id]) servers[message.guild.id] = {
+            if(!servers[message.guild.id]) servers[message.guild.id] = {
 
-					queue: []
-				
-				  };            
+              queue: []
+                
+            };            
 
-				var server = servers[message.guild.id];
+            var server = servers[message.guild.id];
 
-				server.queue.push(args[0]);
+            server.queue.push(args[0]);
+                  
+            if(!message.guild.voiceConnection) message.member.voiceChannel.join().then(function(connection) {
+                  
+              play(connection, message) 
+                  
+            });
 			  
-				if(!message.guild.voiceConnection) message.member.voiceChannel.join().then(function(connection) {
-			  
-				play(connection, message) 
-			  
-				});
-			  
-				
-				break;
+				  break;
 			
-			case "stop":
+			    case "stop":
 
-				if(!message.member.voiceChannel){ 
+				    if(!message.member.voiceChannel){ 
 					
-					chann.send(":x: Tu dois être dans un salon vocal");
+					    chann.send(":x: Tu dois être dans un salon vocal");
 
-					message.member.voiceChannel.leave();
+					    message.member.voiceChannel.leave();
 				  
-				}
-				break;
+				    }
+				  break;
         }
 
     }
