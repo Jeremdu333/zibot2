@@ -39,7 +39,7 @@ bot.login(process.env.token);
 bot.once('ready', () => {
 
     //On envoit un message à la console pour lui dire que le bot est bien connecté
-    console.log('Je suis prêt à être utilisé !');
+    console.log('Je suis prêt à être utilisé 2!');
 
 });
 
