@@ -1,0 +1,19 @@
+{
+  "name": "zibot",
+  "version": "2.0.0",
+  "description": "Bot Discord",
+  "main": "bot.js",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "ffmpeg": "0.0.4",
+    "opusscript": "0.0.6",
+    "pg": "^7.7.1",
+    "ytdl-core": "^0.28.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jeremy",
+  "license": "ISC"
+}
