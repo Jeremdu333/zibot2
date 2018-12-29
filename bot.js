@@ -121,7 +121,7 @@ bot.on('message', message => {
 			
 			case "stop":
 
-				if(!message.member.voiceChannel) 
+				if(!message.member.voiceChannel){ 
 					
 					chann.send(":x: Tu dois être dans un salon vocal");
 
