@@ -77,7 +77,7 @@ bot.on('message', message => {
             //Quand on fait la commande 'ping'
             case 'ping':
 
-                channel.send("Pong !");
+                chann.send("Pong !");
 
             break;
 
