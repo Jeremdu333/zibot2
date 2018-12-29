@@ -84,51 +84,51 @@ bot.on('message', message => {
             //Quand on fait la commande 'play'
             case 'play':
 
-            if (!args[0]) {
+				if (!args[0]) {
 
-                chann.send(":x: Tu dois m’indiquer un lien YouTube !"); 
-            
-                return;
-            
-              }
-            
-                if(!message.member.voiceChannel) {
-            
-                chann.send(":x: Tu dois être dans un salon vocal !"); 
-            
-                return;
-            
-              }
+					chann.send(":x: Tu dois m’indiquer un lien YouTube !"); 
+				
+					return;
+				
+				  }
+				
+					if(!message.member.voiceChannel) {
+				
+					chann.send(":x: Tu dois être dans un salon vocal !"); 
+				
+					return;
+				
+				  }
 
-            if(!servers[message.guild.id]) servers[message.guild.id] = {
+				if(!servers[message.guild.id]) servers[message.guild.id] = {
 
-                queue: []
-            
-              };            
+					queue: []
+				
+				  };            
 
-            var server = servers[message.guild.id];
+				var server = servers[message.guild.id];
 
-            server.queue.push(args[0]);
-          
-            if(!message.guild.voiceConnection) message.member.voiceChannel.join().then(function(connection) {
-          
-            play(connection, message) 
-          
-            });
-          
-            
-            break;
+				server.queue.push(args[0]);
+			  
+				if(!message.guild.voiceConnection) message.member.voiceChannel.join().then(function(connection) {
+			  
+				play(connection, message) 
+			  
+				});
+			  
+				
+				break;
 			
 			case "stop":
 
-			if(!message.member.voiceChannel) 
-				
-				return chann.send(":x: Tu dois être dans un salon vocal");
+				if(!message.member.voiceChannel) 
+					
+					chann.send(":x: Tu dois être dans un salon vocal");
 
-				message.member.voiceChannel.leave();
-			  
-			}
-			break;
+					message.member.voiceChannel.leave();
+				  
+				}
+				break;
         }
 
     }
